@@ -1,32 +1,40 @@
 ---
-
-import Header from "../components/Header.astro"
+import { ViewTransitions } from "astro:transitions";
+import Header from "../components/Header.astro";
 interface Props {
-	title: string;
-	description?: string;
-	image?:string;
+  title: string;
+  description?: string;
+  image?: string;
 }
 
-const { title, 
-description = "A Comunity of music producers and enthusiasts", 
-image = "/images/band.jpg"
+const {
+  title,
+  description = "A Comunity of music producers and enthusiasts",
+  image = "/images/band.jpg",
 } = Astro.props;
-
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<meta property="og:image" content={image} />
-		<title>{title}</title>
-	</head>
-	<body class="min-h-screen">
-		<Header />
-		<slot />
-	</body>
+  <head>
+    <ViewTransitions />
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:image" content={image} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen">
+    <Header />
+    <slot />
+  </body>
 </html>

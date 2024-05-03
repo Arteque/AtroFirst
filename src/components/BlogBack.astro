@@ -1,0 +1,20 @@
+---
+import type { EventModule } from "astro:transitions/client";
+---
+
+<a
+  class="goBackBtn flex align-center justify-center gap-x-2 btn py-2 px-5 rounded-2xl ml-auto mb-10 w-fit text-stone-800 hover:text-stone-500 hover:bg-stone-200 transition-all"
+  href="#"
+>
+  <i class="fa-solid fa-arrow-rotate-left block p-0"></i>
+  <span class="block p-0"> Go Back </span>
+</a>
+
+<script>
+  document.querySelectorAll(".goBackBtn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.history.back();
+    });
+  });
+</script>
